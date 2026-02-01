@@ -1,38 +1,62 @@
 #include <stdio.h>
 
+int calculate(int a, int b, char op, int *error);
+
 int main() {
-    int i, j, sum;
-    char s;
-    printf("Enter your number 1: ");
-    scanf("%d", &i);
+    int num1, num2, result;
+    char mode;
+    int error;
 
-    printf("Select calculator (+ - * / %): ");
-    scanf("%s", &s);
+    while (1) {
+        printf("Select mode (+ - * / %% to exit(Q)): ");
+        scanf(" %c", &mode);
 
-    printf("Enter your number 2: ");
-    scanf("%d", &j);
+        if (mode == 'q' || mode == 'Q') {
+            printf("Exit program\n");
+            break;
+        }
 
-    switch (s) {
-        case '+':
-            sum = i + j;
-            break;
-        case '-':
-            sum = i - j;
-            break;
-        case '*':
-            sum = i * j;
-            break;
-        case '/':
-            sum = i / j;
-            break;
-        case '%':
-            sum = i % j;
-            break;
-        default:
-            printf("Error calculator");
-            break;
+        printf("Enter number 1: ");
+        scanf("%d", &num1);
+
+        printf("Enter number 2: ");
+        scanf("%d", &num2);
+
+        result = calculate(num1, num2, mode, &error);
+
+        if (error == 1) {
+            printf("Cannot divide or modulo by zero\n");
+        } else if (error == 2) {
+            printf("Invalid mode\n");
+        } else {
+            printf("Your answer = %d\n", result);
+        }
     }
 
-    printf("Your answer is %d", sum);
     return 0;
+}
+
+int calculate(int a, int b, char op, int *error) {
+    *error = 0;
+
+    switch (op) {
+        case '+': return a + b;
+        case '-': return a - b;
+        case '*': return a * b;
+        case '/':
+            if (b == 0) {
+                *error = 1;
+                return 0;
+            }
+            return a / b;
+        case '%':
+            if (b == 0) {
+                *error = 1;
+                return 0;
+            }
+            return a % b;
+        default:
+            *error = 2;
+            return 0;
+    }
 }
