@@ -1,7 +1,8 @@
 
 #include <stdio.h>
-#include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <math.h>
 
     int choice;
     double num;
@@ -40,6 +41,11 @@ int main() {
         Result /= num;
         printf("Result: %.2f\n",Result);
         break;
+    case 5:
+        input_Number();
+        Result = fmod(Result, num);
+        printf("Result: %.2f\n",Result);
+        break;
     case 0:
         printf("Exiting...\n");
         break;
@@ -64,6 +70,7 @@ void displayMenu() {
     printf("2. Subtraction (-)\n");
     printf("3. Multiplication (*)\n");
     printf("4. Division (/)\n");
+    printf("5. Modulus (%)\n");
     printf("0. Exit\n");
 }
 
