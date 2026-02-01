@@ -12,7 +12,7 @@ int main() {
 }
 
 void HelloWorld() {
-    for (int = 1; i <= 5; i++) {
+    for (int i = 1; i <= 5; i++) {
         printf("Hello World BASS\n");
     }
 }
