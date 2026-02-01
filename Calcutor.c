@@ -3,12 +3,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <math.h>
+#include <ctype.h>
 
     int choice;
     double num;
     double Result = 0 ; 
 
-void print_number(char **str_number);
 void displayMenu();
 void input_Number ();
 int main() {
@@ -20,6 +20,11 @@ int main() {
         displayMenu();
         printf("input Choice -->  ");
         scanf("%d", &choice);
+        if(choice >= 6){
+            printf("==========================\n");
+            printf("Please enter valid data !!\n");
+            printf("==========================\n\n");
+        }
       switch (choice){
     case 1:
         input_Number();
@@ -56,9 +61,6 @@ int main() {
     printf("Result = %.2f",Result);
 
     return 0;
-}
-void print_number(char **str_number){
-    printf("%s\n",*str_number);
 }
 void input_Number (){
      printf("Enter numbers: ");
