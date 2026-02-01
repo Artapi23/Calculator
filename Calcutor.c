@@ -1,42 +1,43 @@
 // Git input-output test
 #include <stdio.h>
 #include <stdlib.h>
+
+    int choice;
+    double num;
+    double Result = 0 ; 
+
 void print_number(char **str_number);
 void displayMenu();
+void input_Number ();
 int main() {
-    int choice;
-    double num1 ,num2 ;
-    do{
+  
+     printf("Enter numbers: ");
+     scanf("%lf",&num);
+      Result += num;
+    do{  
         displayMenu();
+        printf("input Choice -->  ");
         scanf("%d", &choice);
       switch (choice){
     case 1:
-        printf("Enter two numbers: ");
-        scanf("%lf", &num1);
-        printf("Enter two numbers: ");
-        scanf("%lf",&num2);
-        printf("Result: %.2f\n", num1 + num2);
+        input_Number();
+        Result += num;
+        printf("Result: %.2f\n",Result);
         break;
     case 2:
-        printf("Enter two numbers: ");
-        scanf("%lf", &num1);
-        printf("Enter two numbers: ");
-        scanf("%lf",&num2);
-        printf("Result: %.2f\n", num1 - num2);
+        input_Number ();
+        Result -= num;
+        printf("Result: %.2f\n",Result);
         break;
     case 3:
-        printf("Enter two numbers: ");
-        scanf("%lf", &num1);
-        printf("Enter two numbers: ");
-        scanf("%lf",&num2);
-        printf("Result: %.2f\n", num1 * num2);
+        input_Number ();
+        Result *= num;
+        printf("Result: %.2f\n",Result);
         break;
     case 4:
-       printf("Enter two numbers: ");
-        scanf("%lf", &num1);
-        printf("Enter two numbers: ");
-        scanf("%lf",&num2);
-        printf("Result: %.2f\n", num1 / num2);
+        input_Number ();
+        Result /= num;
+        printf("Result: %.2f\n",Result);
         break;
     case 0:
         printf("Exiting...\n");
@@ -45,12 +46,16 @@ int main() {
         break;
     }
     } while (choice != 0);
-
+    printf("Result = %.2f",Result);
 
     return 0;
 }
 void print_number(char **str_number){
     printf("%s\n",*str_number);
+}
+void input_Number (){
+     printf("Enter numbers: ");
+     scanf("%lf",&num);
 }
 void displayMenu() {
     printf("\n--- Scientific Calculator ---\n");
