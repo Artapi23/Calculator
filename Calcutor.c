@@ -1,24 +1,19 @@
 // Git input-output test
 #include <stdio.h>
-
-void HelloWorld();
-
+#include <stdlib.h>
+void print_number(char **str_number);
 int main() {
-    printf("Hello, World! By sam\n");
-
-    HelloWorld();
-
-    return 0;
-<<<<<<< HEAD
-=======
-}
-
-void HelloWorld() {
-    for (int i = 1; i <= 5; i++) {
-        printf("Hello World BASS\n");
+    int Number;
+    while (Number == 0)
+    { 
+        char *str_number;
+        printf("Input Number -->\n");
+        scanf("%d", &Number);
+        snprintf(str_number, sizeof(str_number), "%d", Number);
+        print_number(&str_number);
     }
->>>>>>> 81750ef6758e30ef07fac762f228741d0d6e3cfe
+    return 0;
 }
-void Calculate(){
-    scanf("%d");
+void print_number(char **str_number){
+    printf("%s",*str_number);
 }
