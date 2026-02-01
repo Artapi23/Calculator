@@ -1,9 +1,14 @@
 #include <stdio.h>
 
 int main() {
-    for (int i=1; i<=5; i++) {
-        printf("Hello World %d\n", i);
-    }
+    int i, j, sum;
+    printf("Enter your number1: ");
+    scanf("%d", &i);
 
+    printf("Enter your number2: ");
+    scanf("%d", &j);
+
+    sum = i + j;
+    printf("Your answer is %d", sum);
     return 0;
 }
