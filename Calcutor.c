@@ -14,8 +14,13 @@ void input_Number ();
 int main() {
   
      printf("Enter numbers: ");
-     scanf("%lf",&num);
+    while (scanf("%lf", &num) != 1) { //ตรวจสอบตัวแปรของข้อมูล
+        printf("ข้อมูลผิดพลาด! กรุณาใส่ตัวเลขใหม่: ");
+        while (getchar() != '\n');
+    }
+
       Result += num;
+
     do{  
         displayMenu();
         printf("input Choice -->  ");
@@ -25,6 +30,7 @@ int main() {
             printf("Please enter valid data !!\n");
             printf("==========================\n\n");
         }
+
       switch (choice){
     case 1:
         input_Number();
