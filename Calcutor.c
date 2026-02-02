@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-int Calculator(int total);
+int Calculator(int first);
 
 int main() {
     int total;
@@ -14,32 +14,39 @@ int main() {
     return 0;
 }
 
-int Calculator(int total) {
-    int nextNum;
+int Calculator(int first) {
+    int nextNum, result = 0;
+    int term = first;
     char op;
 
-    while ((op = getchar()) != '\n') {
+    for (int i=0; i<first; i++) {
+        op = getchar();
+        if (op == '\n') {
+            break;
+        }
         scanf("%d", &nextNum);
         switch (op) {
         case '+':
-            total += nextNum;
+            result += term;
+            term = nextNum;
             break;
         case '-':
-            total -= nextNum;
+            result += term;
+            term = -nextNum;
             break;
         case '*':
-            total *= nextNum;
+            term *= nextNum;
             break;
         case '/':
-            total /= nextNum;
+            term /= nextNum;
             break;
         case '%':
-            total %= nextNum;
+            term %= nextNum;
             break;
         default:
             printf("Invalid input", op);
-            return total;
+            return result + term;
         }
     }
-    return total;
+    return result + term;
 }
