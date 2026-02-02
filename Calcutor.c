@@ -1,38 +1,52 @@
 #include <stdio.h>
 
+int Calculator(int first);
+
 int main() {
-    int i, j, sum;
-    char s;
-    printf("Enter your number 1: ");
-    scanf("%d", &i);
+    int total;
 
-    printf("Select calculator (+ - * / %): ");
-    scanf("%s", &s);
+    printf("Enter expression: ");
+    scanf("%d", &total);
 
-    printf("Enter your number 2: ");
-    scanf("%d", &j);
+    total = Calculator(total);
 
-    switch (s) {
+    printf("Sum: %d\n", total);
+    return 0;
+}
+
+int Calculator(int first) {
+    int nextNum, result = 0;
+    int term = first;
+    char op;
+
+    for (int i=0; i<first; i++) {
+        op = getchar();
+        if (op == '\n') {
+            break;
+        }
+        scanf("%d", &nextNum);
+        switch (op) {
         case '+':
-            sum = i + j;
+            result += term;
+            term = nextNum;
             break;
         case '-':
-            sum = i - j;
+            result += term;
+            term = -nextNum;
             break;
         case '*':
-            sum = i * j;
+            term *= nextNum;
             break;
         case '/':
-            sum = i / j;
+            term /= nextNum;
             break;
         case '%':
-            sum = i % j;
+            term %= nextNum;
             break;
         default:
-            printf("Error calculator");
-            break;
+            printf("Invalid input", op);
+            return result + term;
+        }
     }
-
-    printf("Your answer is %d", sum);
-    return 0;
+    return result + term;
 }
