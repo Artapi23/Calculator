@@ -1,62 +1,45 @@
 #include <stdio.h>
 
-int calculate(int a, int b, char op, int *error);
+int Calculator(int total);
 
 int main() {
-    int num1, num2, result;
-    char mode;
-    int error;
+    int total;
 
-    while (1) {
-        printf("Select mode (+ - * / %% to exit(Q)): ");
-        scanf(" %c", &mode);
+    printf("Enter expression: ");
+    scanf("%d", &total);
 
-        if (mode == 'q' || mode == 'Q') {
-            printf("Exit program\n");
-            break;
-        }
+    total = Calculator(total);
 
-        printf("Enter number 1: ");
-        scanf("%d", &num1);
-
-        printf("Enter number 2: ");
-        scanf("%d", &num2);
-
-        result = calculate(num1, num2, mode, &error);
-
-        if (error == 1) {
-            printf("Cannot divide or modulo by zero\n");
-        } else if (error == 2) {
-            printf("Invalid mode\n");
-        } else {
-            printf("Your answer = %d\n", result);
-        }
-    }
-
+    printf("Sum: %d\n", total);
     return 0;
 }
 
-int calculate(int a, int b, char op, int *error) {
-    *error = 0;
+int Calculator(int total) {
+    int nextNum;
+    char op;
 
-    switch (op) {
-        case '+': return a + b;
-        case '-': return a - b;
-        case '*': return a * b;
+    while ((op = getchar()) != '\n') {
+        scanf("%d", &nextNum);
+        switch (op) {
+        case '+':
+            total += nextNum;
+            break;
+        case '-':
+            total -= nextNum;
+            break;
+        case '*':
+            total *= nextNum;
+            break;
         case '/':
-            if (b == 0) {
-                *error = 1;
-                return 0;
-            }
-            return a / b;
+            total /= nextNum;
+            break;
         case '%':
-            if (b == 0) {
-                *error = 1;
-                return 0;
-            }
-            return a % b;
+            total %= nextNum;
+            break;
         default:
-            *error = 2;
-            return 0;
+            printf("Invalid input", op);
+            return total;
+        }
     }
+    return total;
 }
