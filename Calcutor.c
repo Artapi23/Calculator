@@ -1,4 +1,3 @@
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -12,25 +11,16 @@
 void displayMenu();
 void input_Number ();
 int main() {
-  
-     printf("Enter numbers: ");
-    while (scanf("%lf", &num) != 1) { //ตรวจสอบตัวแปรของข้อมูล
-        printf("ข้อมูลผิดพลาด! กรุณาใส่ตัวเลขใหม่: ");
-        while (getchar() != '\n');
-    }
-
+      input_Number();
       Result += num;
-
     do{  
         displayMenu();
         printf("input Choice -->  ");
         scanf("%d", &choice);
-        if(choice >= 6){
-            printf("==========================\n");
-            printf("Please enter valid data !!\n");
-            printf("==========================\n\n");
+        if(choice >= 6 && scanf("%d", &choice) != 1){//ตรวจสอบตัวแปรของข้อมูล
+            printf("ข้อมูลผิดพลาด! กรุณาใส่ตัวเลขใหม่: ");
+            while (getchar() != '\n');
         }
-
       switch (choice){
     case 1:
         input_Number();
@@ -64,13 +54,16 @@ int main() {
         break;
     }
     } while (choice != 0);
-    printf("Result = %.2f",Result);
+    printf("Result = %.2f\n",Result);
 
     return 0;
 }
 void input_Number (){
-     printf("Enter numbers: ");
-     scanf("%lf",&num);
+       printf("Enter numbers: ");
+    while (scanf("%lf", &num) != 1) { //ตรวจสอบตัวแปรของข้อมูล
+        printf("ข้อมูลผิดพลาด! กรุณาใส่ตัวเลขใหม่: ");
+     while (getchar() != '\n');
+    }
 }
 void displayMenu() {
     printf("\n--- Scientific Calculator ---\n");
