@@ -44,8 +44,8 @@ int Calculator(int first) {
             term %= nextNum;
             break;
         default:
-            printf("Invalid input %c", op); // op แสดงอะไร
-            return result + term;
+            printf("Invalid input '%c' ", op);
+            return 0;
         }
     }
     return result + term;
