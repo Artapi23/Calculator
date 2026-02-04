@@ -58,8 +58,10 @@ int main() {
     } while (choice != 0) ;
     printf("Result = %.2f\n",Result) ;
 
-    printf("Sum: %d\n", total);
-    return 0;
+   
+}
+ return 0;
+ 
 }
 
 void input_Number (){
