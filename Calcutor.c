@@ -19,6 +19,9 @@ int main() {
         if(choice >= 6 && scanf("%d", &choice) != 1){//ตรวจสอบตัวแปรของข้อมูล
             printf("Error! Please Enter Your Number : ") ;
             while (getchar() != '\n') ;
+        if(choice >= 6 && scanf("%d", &choice) != 1){
+            printf("ข้อมูลผิดพลาด! กรุณาใส่ตัวเลขใหม่: ");
+            while (getchar() != '\n');
         }
       switch (choice){
     case 1:
