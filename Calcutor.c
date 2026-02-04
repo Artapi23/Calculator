@@ -23,7 +23,7 @@ int main() {
         displayMenu();
         printf("input Choice -->  ");
         scanf("%d", &choice);
-        if(choice >= 6 && scanf("%d", &choice) != 1){
+        if(choice >= 6 && scanf("%d", &choice) != 1){//ตรวจสอบตัวแปรของข้อมูล
             printf("ข้อมูลผิดพลาด! กรุณาใส่ตัวเลขใหม่: ");
             while (getchar() != '\n');
         }
