@@ -3,7 +3,6 @@
 #include <string.h>
 #include <math.h>
 
-int Calculator(int first);
     int choice;
     double num;
     double Result = 0 ; 
@@ -66,42 +65,6 @@ int main() {
     return 0;
 }
 
-int Calculator(int first) {
-    int nextNum, result = 0;
-    int term = first;
-    char op;
-
-    for (int i=0; i<first; i++) {
-        op = getchar();
-        if (op == '\n') {
-            break;
-        }
-        scanf("%d", &nextNum);
-        switch (op) {
-        case '+':
-            result += term;
-            term = nextNum;
-            break;
-        case '-':
-            result += term;
-            term = -nextNum;
-            break;
-        case '*':
-            term *= nextNum;
-            break;
-        case '/':
-            term /= nextNum;
-            break;
-        case '%':
-            term %= nextNum;
-            break;
-        default:
-            printf("Invalid input '%c' ", op);
-            return 0;
-        }
-    }
-    return result + term;
-}
 void input_Number (){
        printf("Enter numbers: ");
     while (scanf("%lf", &num) != 1) { //ตรวจสอบตัวแปรของข้อมูล
