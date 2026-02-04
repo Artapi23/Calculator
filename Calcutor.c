@@ -60,6 +60,7 @@ int main() {
 
     return 0;
 }
+}
 void input_Number (){
        printf("Enter numbers : ") ;
     while (scanf("%lf", &num) != 1) { //ตรวจสอบตัวแปรของข้อมูล
@@ -76,4 +77,4 @@ void displayMenu() {
     printf("5. Modulus (%)\n") ;
     printf("0. Exit\n") ;
 }
-}
+
