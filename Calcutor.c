@@ -17,34 +17,34 @@ int main() {
         printf("input Choice -->  ");
         scanf("%d", &choice);
         if(choice >= 6 && scanf("%d", &choice) != 1){//ตรวจสอบตัวแปรของข้อมูล
-            printf("ข้อมูลผิดพลาด! กรุณาใส่ตัวเลขใหม่: ");
+            printf("Error! Please Enter Your Number : ");
             while (getchar() != '\n');
         }
       switch (choice){
     case 1:
         input_Number();
         Result += num;
-        printf("Result: %.2f\n",Result);
+        printf("Result : %.2f\n",Result);
         break;
     case 2:
         input_Number ();
         Result -= num;
-        printf("Result: %.2f\n",Result);
+        printf("Result : %.2f\n",Result);
         break;
     case 3:
         input_Number ();
         Result *= num;
-        printf("Result: %.2f\n",Result);
+        printf("Result : %.2f\n",Result);
         break;
     case 4:
         input_Number ();
         Result /= num;
-        printf("Result: %.2f\n",Result);
+        printf("Result : %.2f\n",Result);
         break;
     case 5:
         input_Number();
         Result = fmod(Result, num);
-        printf("Result: %.2f\n",Result);
+        printf("Result : %.2f\n",Result);
         break;
     case 0:
         printf("Exiting...\n");
@@ -60,7 +60,7 @@ int main() {
 void input_Number (){
        printf("Enter numbers: ");
     while (scanf("%lf", &num) != 1) { //ตรวจสอบตัวแปรของข้อมูล
-        printf("ข้อมูลผิดพลาด! กรุณาใส่ตัวเลขใหม่: ");
+        printf("Error! Please Enter Your Number : ");
      while (getchar() != '\n');
     }
 }
