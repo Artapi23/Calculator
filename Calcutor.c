@@ -76,4 +76,4 @@ void displayMenu() {
     printf("5. Modulus (%)\n") ;
     printf("0. Exit\n") ;
 }
-
+}
