@@ -16,7 +16,7 @@ int main() {
         displayMenu() ;
         printf("input Choice -->  ") ;
         scanf("%d", &choice);
-        if(choice >= 6 && scanf("%d", &choice) != 1){//ตรวจสอบตัวแปรของข้อมูล
+        if(scanf("%d", &choice) != 1){//ตรวจสอบตัวแปรของข้อมูล
             printf("Error! Please Enter Your Number : ") ;
             while (getchar() != '\n') ;
         if(choice >= 6 && scanf("%d", &choice) != 1){
@@ -56,10 +56,8 @@ int main() {
         break;
     }
     } while (choice != 0) ;
-    printf("Result = %.2f\n",Result) ;
-
-   
 }
+ printf("Result = %.2f\n",Result) ;
  return 0;
  
 }
