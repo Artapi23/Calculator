@@ -1,80 +1,68 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 #include <math.h>
 
-    int choice ;
-    double num ;
-    double Result = 0 ; 
+int choice;
+double num;
+double Result = 0; 
 
-void displayMenu() ;
-void input_Number () ;
+void displayMenu();
+void input_Number();
+
 int main() {
-      input_Number() ;
-      Result += num ;
-    do{  
-        displayMenu() ;
-        printf("input Choice -->  ") ;
-        scanf("%d", &choice);
-        if(choice >= 6 && scanf("%d", &choice) != 1){//ตรวจสอบตัวแปรของข้อมูล
-            printf("Error! Please Enter Your Number : ") ;
-            while (getchar() != '\n') ;
-        if(choice >= 6 && scanf("%d", &choice) != 1){
-            printf("ข้อมูลผิดพลาด! กรุณาใส่ตัวเลขใหม่: ");
-            while (getchar() != '\n');
+    printf("--- Welcome to Calculator ---\n");
+    input_Number();
+    Result = num; // ตั้งค่าเริ่มต้นจากตัวเลขแรกที่พิมพ์
+
+    do {  
+        displayMenu();
+        printf("Input Choice --> ");
+        
+        // ตรวจสอบว่าสิ่งที่พิมพ์มาเป็นตัวเลขหรือไม่
+        if (scanf("%d", &choice) != 1) {
+            printf("Error! Please Enter a Number (0-5).\n");
+            while (getchar() != '\n'); // ล้างค่าใน Buffer ทิ้ง
+            continue; // กลับไปเริ่ม Loop ใหม่
         }
-      switch (choice){
-    case 1:
-        input_Number() ;
-        Result += num ;
-        printf("Result : %.2f\n",Result) ;
-        break;
-    case 2:
-        input_Number () ;
-        Result -= num;
-        printf("Result : %.2f\n",Result) ;
-        break ;
-    case 3:
-        input_Number () ;
-        Result *= num ;
-        printf("Result : %.2f\n",Result) ;
-        break ;
-    case 4:
-        input_Number () ;
-        Result /= num;
-        printf("Result : %.2f\n",Result) ;
-        break ;
-    case 5:
-        input_Number() ;
-        Result = fmod(Result, num) ;
-        printf("Result : %.2f\n",Result) ;
-        break ;
-    case 0:
-        printf("Exiting...\n") ;
-        break;
-    default:
-        break;
-    }
-    } while (choice != 0) ;
-    printf("Result = %.2f\n",Result) ;
 
-    return 0;
+        switch (choice) {
+            case 1: input_Number(); Result += num; break;
+            case 2: input_Number(); Result -= num; break;
+            case 3: input_Number(); Result *= num; break;
+            case 4: 
+                input_Number(); 
+                if(num != 0) Result /= num; 
+                else printf("Cannot divide by zero!\n");
+                break;
+            case 5: 
+                input_Number(); 
+                if(num != 0) Result = fmod(Result, num); 
+                else printf("Cannot mod by zero!\n");
+                break;
+            case 0: printf("Exiting...\n"); break;
+            default: printf("Invalid choice! Please select 0-5.\n"); break;
+        }
+
+        if (choice != 0) {
+            printf("\n>>> Result: %.2f <<<\n", Result);
+        }
+
+    } while (choice != 0);
+
+    printf("Final Result = %.2f\n", Result);
+    
+    return 0; // ต้องอยู่ก่อนปีกกาปิดของ main
 }
-}
-void input_Number (){
-       printf("Enter numbers : ") ;
-    while (scanf("%lf", &num) != 1) { //ตรวจสอบตัวแปรของข้อมูล
-        printf("Error! Please Enter Your Number : ") ;
-     while (getchar() != '\n') ;
+
+void input_Number() {
+    printf("Enter number: ");
+    while (scanf("%lf", &num) != 1) {
+        printf("Error! Please Enter a Valid Number: ");
+        while (getchar() != '\n');
     }
 }
+
 void displayMenu() {
-    printf("\n--- Scientific Calculator ---\n") ;
-    printf("1. Addition (+)\n") ;
-    printf("2. Subtraction (-)\n") ;
-    printf("3. Multiplication (*)\n") ;
-    printf("4. Division (/)\n") ;
-    printf("5. Modulus (%)\n") ;
-    printf("0. Exit\n") ;
+    printf("\n--- Menu ---\n");
+    printf("1. (+)\n2. (-)\n3. (*)\n4. (/)\n5. (%%)\n0. Exit\n");
 }
-
