@@ -9,20 +9,16 @@
 
 void displayMenu() ;
 void input_Number () ;
-int main() {
+int main(){
       input_Number() ;
       Result += num ;
     do{  
         displayMenu() ;
         printf("input Choice -->  ") ;
         scanf("%d", &choice);
-        if(choice >= 6 && scanf("%d", &choice) != 1){//ตรวจสอบตัวแปรของข้อมูล
+        if(scanf("%d", &choice) != 1){//ตรวจสอบตัวแปรของข้อมูล
             printf("Error! Please Enter Your Number : ") ;
-            while (getchar() != '\n') ;
-        if(choice >= 6 && scanf("%d", &choice) != 1){
-            printf("ข้อมูลผิดพลาด! กรุณาใส่ตัวเลขใหม่: ");
-            while (getchar() != '\n');
-        }
+            while (getchar() != '\n') ;}
       switch (choice){
     case 1:
         input_Number() ;
@@ -60,7 +56,7 @@ int main() {
 
     return 0;
 }
-}
+
 void input_Number (){
        printf("Enter numbers : ") ;
     while (scanf("%lf", &num) != 1) { //ตรวจสอบตัวแปรของข้อมูล
