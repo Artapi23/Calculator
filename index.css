@@ -2,12 +2,22 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;   
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+    background-color: rgb(240, 238, 238); 
 }
-.content{
-    display: grid;
+.content {
+    margin: 2rem;
+    padding: 3rem;
+    display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
+    gap: 30px;
+
+    input {
+        padding: 5px 2px;
+        
+    }
+
+    button {
+        border-radius: 2px;
+    }
 }
